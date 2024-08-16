@@ -12,7 +12,7 @@ app = FastAPI()
 def message():
     return {"message": "LightEffectsAPI"}
 
-# Guardar foto en el directorio local /originals
+# Guardar foto en el directorio local /img/originals
 @app.post("/upload-photo")
 async def uploadFile(file: UploadFile):
     try:
@@ -24,7 +24,7 @@ async def uploadFile(file: UploadFile):
         return {"message": e.args}
 
 # Recuperar foto editada
-@app.get("/get-edited-photo")
+@app.get("/get-edited-photo/{fileName}")
 async def getEditedPhoto(fileName : str):
     editedFilePath = "img/edits/" + fileName
     try:
@@ -45,7 +45,7 @@ def getOriginalsList():
     return os.listdir("img/originals/")
 
 # Editar foto
-@app.put("/edit-photo")
+@app.put("/edit-photo/{fileName}")
 async def editPhoto(
     fileName : str,
     bri : Optional[int] = Query(0, ge = -100, le = 100),
@@ -55,6 +55,10 @@ async def editPhoto(
     r : Optional[int] = Query(0, ge = -100, le = 100),
     g : Optional[int] = Query(0, ge = -100, le = 100),
     b : Optional[int] = Query(0, ge = -100, le = 100)):
+    
+    # Se revisa si el archivo existe en el directorio local /img/originals
+    if fileName not in os.listdir("img/originals/"):
+        return {"error": "File does not exist."}
     
     try:
         filePath = "img/originals/" + fileName
@@ -68,7 +72,7 @@ async def editPhoto(
         if (g != 0): image = filterFunction(image, "green", g)
         if (b != 0): image = filterFunction(image, "blue", b)
         
-        # Se guarda el resultado en el directorio /edits
+        # Se guarda el resultado en el directorio /img/edits
         editedFilePath = "img/edits/" + os.path.splitext(fileName)[0] + "_edited.jpg"    
         cv.imwrite(editedFilePath, image)
 
