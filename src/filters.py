@@ -11,9 +11,16 @@ def filterFunction(img, filterX = '', value = 0):
     rows,columns,channels=np.shape(img)
     filteredImg = img.copy()
     
-    if (filterX == 'brightness'):
-        # Se suma el valor a cada canal  de cada pixel en la imagen
-        filteredImg = cv.add(img, np.array([float(value)]))
+    if (filterX == 'brightness'):    # valor = [-100, 100]        
+        value = (value + 100 ) / 100 # valor = [0, 2]
+
+        # Se cambia el formato de la imagen de BGR a HSV (Hue, Saturation, Value)
+        hsvImg = cv.cvtColor(img, cv.COLOR_BGR2HSV)
+        # Se utiliza el valor V para modificar el brillo de cada canal
+        hsvValue = hsvImg[:,:,2]
+        modifiedValueChannel = np.clip(hsvValue * value, 0, 255).astype('uint8')
+        hsvImg[:,:,2] = modifiedValueChannel
+        filteredImg = cv.cvtColor(hsvImg, cv.COLOR_HSV2BGR)
     
     
     elif (filterX == 'contrast'):
@@ -50,7 +57,7 @@ def filterFunction(img, filterX = '', value = 0):
 
         # Se cambia el formato de la imagen de BGR a HSV (Hue, Saturation, Value)
         hsvImg = cv.cvtColor(img, cv.COLOR_BGR2HSV)
-        # Se utiliza el valor V para modificar el brillo de cada canal
+        # Se utiliza el valor V para modificar la saturación de cada canal
         hsvValue = hsvImg[:,:,1]
         modifiedValueChannel = np.clip(hsvValue * value, 0, 255).astype('uint8')
         hsvImg[:,:,1] = modifiedValueChannel
