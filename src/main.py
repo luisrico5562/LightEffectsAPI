@@ -1,16 +1,21 @@
-from fastapi import FastAPI, Query, UploadFile
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, Query, UploadFile, Request
+from fastapi.responses import FileResponse, HTMLResponse
 from typing import Optional
 import os
 
 from filters import filterFunction
 import cv2 as cv
 
+from fastapi.templating import Jinja2Templates
+
 app = FastAPI()
 
-@app.get("/")
-def message():
-    return {"message": "LightEffectsAPI"}
+templates = Jinja2Templates(directory="../templates")
+
+# Cargar index.html
+@app.get("/", response_class=HTMLResponse)
+def index(request: Request):
+    return templates.TemplateResponse("index.html", {'request': request}) 
 
 # Guardar foto en el directorio local /img/originals
 @app.post("/upload-photo")
