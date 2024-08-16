@@ -3,13 +3,13 @@ import numpy as np
 
 def filterFunction(img, filterX = '', value = 0):
     
+    if (value == 0): return img
+    
     # Convirtiendo el valor a entero y definiendo parámetros
     value = np.clip(int(value), -100, 100)
     
     rows,columns,channels=np.shape(img)
     filteredImg = img.copy()
-    
-    print(rows, columns)
     
     if (filterX == 'brightness'):
         # Se suma el valor a cada canal  de cada pixel en la imagen
@@ -38,24 +38,23 @@ def filterFunction(img, filterX = '', value = 0):
             print(beta)
             # Se normalizan los valores de los canales, acercándolos a un punto medio (128)
             filteredImg = cv.normalize(img, None, alpha=alpha, beta=beta, norm_type=cv.NORM_MINMAX, dtype=cv.CV_32F)
-        if (value != 0):
-            filteredImg = np.clip(filteredImg, 0, 1)
-            filteredImg = (255*filteredImg).astype('uint8')
+        
+        filteredImg = np.clip(filteredImg, 0, 1)
+        filteredImg = (255*filteredImg).astype('uint8')
             
 
     elif (filterX == 'saturation'):             # value =            [1, 100]
         if (value > 0): value = float(value/10) # +saturación =      [1, 10]
                                                 # value              [-1, -100]
         elif (value < 0): value = float(1+value/100) # -saturación = [1, 0]
-        
-        if (value != 0):
-            # Se cambia el formato de la imagen de BGR a HSV (Hue, Saturation, Value)
-            hsvImg = cv.cvtColor(img, cv.COLOR_BGR2HSV)
-            # Se utiliza el valor V para modificar el brillo de cada canal
-            hsvValue = hsvImg[:,:,1]
-            modifiedValueChannel = np.clip(hsvValue * value, 0, 255).astype('uint8')
-            hsvImg[:,:,1] = modifiedValueChannel
-            filteredImg = cv.cvtColor(hsvImg, cv.COLOR_HSV2BGR) 
+
+        # Se cambia el formato de la imagen de BGR a HSV (Hue, Saturation, Value)
+        hsvImg = cv.cvtColor(img, cv.COLOR_BGR2HSV)
+        # Se utiliza el valor V para modificar el brillo de cada canal
+        hsvValue = hsvImg[:,:,1]
+        modifiedValueChannel = np.clip(hsvValue * value, 0, 255).astype('uint8')
+        hsvImg[:,:,1] = modifiedValueChannel
+        filteredImg = cv.cvtColor(hsvImg, cv.COLOR_HSV2BGR) 
         
                     
     elif (filterX == 'sharpness'):
