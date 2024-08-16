@@ -21,6 +21,7 @@ El proyecto está hecho en Python con FastAPI, además de utilizar un par de bib
 
 - [Python](https://www.python.org/) (v3.12.2)
 - [FastAPI](https://fastapi.tiangolo.com/tutorial/) (v0.110.0)
+- [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/intro/#installation) (v3.1.4)
 - [OpenCV](https://opencv.org/get-started/) (v4.10.0.84)
 - [Numpy](https://numpy.org/install/) (v2.0.1)
 
@@ -39,6 +40,8 @@ __Nota__: Se requiere tener instalado python 3
     `uvicorn main:app --reload`
    
 ## Endpoints
+
+__Nota__: Para manipular los edpoints se utilizó la documentación que FastAPI crea automáticamene (`/docs`).
 
 ### Subir foto
 
@@ -87,4 +90,30 @@ Parámetros Query:
 - __g__ (canal verde) - Integer
 - __b__ (canal azul) - Integer
 
-__Nota__: los rangos de los parámetros query van de -100 a 100, siendo 0 su valor por defecto (cambio nulo)
+__Nota__: los rangos de los parámetros query van de -100 a 100, siendo 0 su valor por defecto (cambio nulo).
+
+
+## Ejemplos
+
+Se anexan algunas fotografías editadas utilizando la API.
+
+`/edit-photo/DSC_0004.JPG?bri=20&con=20&sat=10&sha=5&r=10&g=5&b=-5`
+
+<div style="inline-block">
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/originals/DSC_0004.JPG" alt="original" height="300"/>
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/edits/DSC_0004_edited.jpg" alt="edited" height="300"/>
+</div>
+
+`/edit-photo/DSC_0891.JPG?bri=20&con=10&sat=20&sha=10&r=0&g=0&b=0`
+
+<div style="inline-block">
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/originals/DSC_0891.JPG" alt="original" height="300"/>
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/edits/DSC_0891_edited.jpg" alt="edited" height="300"/>
+</div>
+
+`/edit-photo/DSC_0980.JPG?bri=60&con=-20&sat=20&sha=10&r=-10&g=-10&b=0`
+
+<div style="inline-block">
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/originals/DSC_0980.JPG" alt="original" height="300"/>
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/edits/DSC_0980_edited.jpg" alt="edited" height="300"/>
+</div>
