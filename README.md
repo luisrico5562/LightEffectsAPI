@@ -21,11 +21,23 @@ El proyecto está hecho en Python con FastAPI, además de utilizar un par de bib
 
 - [Python](https://www.python.org/) (v3.12.2)
 - [FastAPI](https://fastapi.tiangolo.com/tutorial/) (v0.110.0)
-- [OpenCV](https://opencv.org/get-started/) (v4.10.0)
+- [OpenCV](https://opencv.org/get-started/) (v4.10.0.84)
 - [Numpy](https://numpy.org/install/) (v2.0.1)
 
 __Nota__: Para el proyecto se utilizó [Uvicorn](https://www.uvicorn.org/) (v0.27.1) para el servidor local.
 
+## Instrucciones para configurar y ejecutar de forma local
+
+__Nota__: Se requiere tener instalado python 3
+1. Crear una copia del repositorio en remoto
+2. Instalar cada biblioteca de forma manual o utilizando el arhivo [requirements.txt](https://github.com/luisrico5562/LightEffectsAPI/blob/main/requirements/requirements.txt). Para esto último se utiliza la consola de comandos. Se abre el directorio donde se ubica el archivo (`LightEffectsAPI/requirements`) y se corre el siguiente comando:
+
+   `pip3 install -r requirements.txt`
+
+3. Dentro de la carpeta `LightEffectsAPI/src` correr el siguiente comando:
+
+    `uvicorn main:app --reload`
+   
 ## Endpoints
 
 ### Subir foto
