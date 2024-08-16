@@ -102,20 +102,20 @@ Se anexan algunas fotografías editadas utilizando la API.
 `/edit-photo/DSC_0004.JPG?bri=20&con=20&sat=10&sha=5&r=10&g=5&b=-5`
 
 <div style="inline-block">
-  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/originals/DSC_0004.JPG" alt="original" height="250"/>
-  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/edits/DSC_0004_edited.jpg" alt="edited" height="250"/>
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/originals/DSC_0004.JPG" alt="original" width="376" height="250" wi/>
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/edits/DSC_0004_edited.jpg" alt="edited" width="376" height="250"/>
 </div>
 
 `/edit-photo/DSC_0891.JPG?bri=20&con=10&sat=20&sha=10&r=0&g=0&b=0`
 
 <div style="inline-block">
-  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/originals/DSC_0891.JPG" alt="original" height="250"/>
-  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/edits/DSC_0891_edited.jpg" alt="edited" height="250"/>
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/originals/DSC_0891.JPG" alt="original" width="376" height="250"/>
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/edits/DSC_0891_edited.jpg" alt="edited" width="376" height="250"/>
 </div>
 
 `/edit-photo/DSC_0980.JPG?bri=60&con=-20&sat=20&sha=10&r=-10&g=-10&b=0`
 
 <div style="inline-block">
-  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/originals/DSC_0980.JPG" alt="original" height="250"/>
-  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/edits/DSC_0980_edited.jpg" alt="edited" height="250"/>
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/originals/DSC_0980.JPG" alt="original" width="376" height="250"/>
+  <img src="https://github.com/luisrico5562/LightEffectsAPI/blob/main/src/img/edits/DSC_0980_edited.jpg" alt="edited" width="376" height="250"/>
 </div>
