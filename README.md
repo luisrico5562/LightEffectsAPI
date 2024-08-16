@@ -41,7 +41,9 @@ __Nota__: Se requiere tener instalado python 3
    
 ## Endpoints
 
-__Nota__: Para manipular los edpoints se utilizó la documentación que FastAPI crea automáticamene (`/docs`).
+__Nota 1__: Para manipular los edpoints se utilizó la documentación que FastAPI crea automáticamene (`/docs`).
+
+__Nota 2__: Los nombres de los archivos (fileName) deben incluir su extensión.
 
 ### Subir foto
 
