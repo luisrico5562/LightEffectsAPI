@@ -33,11 +33,11 @@ __Nota__: Se requiere tener instalado python 3
 1. Crear una copia del repositorio en remoto
 2. Instalar cada biblioteca de forma manual o utilizando el arhivo [requirements.txt](https://github.com/luisrico5562/LightEffectsAPI/blob/main/requirements/requirements.txt). Para esto último se utiliza la consola de comandos. Se abre el directorio donde se ubica el archivo (`LightEffectsAPI/requirements`) y se corre el siguiente comando:
 
-   `pip3 install -r requirements.txt`
+       pip3 install -r requirements.txt
 
 3. Dentro de la carpeta `LightEffectsAPI/src` correr el siguiente comando:
 
-    `uvicorn main:app --reload`
+        uvicorn main:app --reload
    
 ## Endpoints
 
